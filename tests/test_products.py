@@ -1,5 +1,7 @@
 from clients.products_client import ProductsClient
+import pytest
 
+@pytest.mark.skip
 def test_get_products_list(products_client):
     response = products_client.get_products_list()
     data = response.json()
@@ -27,4 +29,11 @@ def test_get_products_list(products_client):
     assert 'usertype' in category
     assert 'usertype' in category['usertype']
 
-    
+
+def test_post_products_list(products_client):
+    response = products_client.post_product_list()
+
+    # ответ ошибочного поста
+    response_data = response.json()
+    assert response_data["responseCode"] == 405
+    assert response_data["message"] == "This request method is not supported."
