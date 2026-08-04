@@ -10,3 +10,6 @@ class ProductsClient:
 
     def get_brands_list(self):
         return requests.get(f"{BASE_URL}/brandsList")
+
+    def put_brand_list(self):
+        return requests.put(f"{BASE_URL}/brandsList")

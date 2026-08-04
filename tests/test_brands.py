@@ -22,3 +22,11 @@ def test_all_brands_have_correct_structure(products_client):
     brands = response.json()['brands']
     for brand in brands():
         check_brand_structure(brand)
+
+def test_put_brands_list_not_allowed(products_client):
+    response = products_client.put_brand_list()
+
+    answer = response.json()
+
+    assert answer['responseCode'] == 405
+    assert answer['message'] == "This request method is not supported."
