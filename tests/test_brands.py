@@ -20,7 +20,7 @@ def check_brand_structure(brand):
 def test_all_brands_have_correct_structure(products_client):
     response = products_client.get_brands_list()
     brands = response.json()['brands']
-    for brand in brands():
+    for brand in brands:
         check_brand_structure(brand)
 
 def test_put_brands_list_not_allowed(products_client):
