@@ -1,5 +1,3 @@
-from clients.products_client import ProductsClient
-import requests
 def test_get_brands_list(products_client):
     response = products_client.get_brands_list()
 
