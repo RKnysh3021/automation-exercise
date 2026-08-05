@@ -37,6 +37,15 @@ def test_verify_login_missing_data(user_client):
     assert data['responseCode'] == 400
     assert data['message'] == 'Bad request, email or password parameter is missing in POST request.'
 
+def test_verify_login_invalid_credentials(user_client):
+    response = user_client.post_verify_login('unexpectedEmail@mail.com', 'unexpectedPassword')
+
+    assert response.status_code == 200
+
+    data = response.json()
+    assert data['responseCode'] == 404
+    assert data['message'] == 'User not found!'
+
 def test_delete_verify_login_not_supported(user_client):
     response = user_client.delete_verify_login()
     assert response.status_code == 200
