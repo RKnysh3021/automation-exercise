@@ -1,4 +1,3 @@
-from clients.products_client import ProductsClient
 import pytest
 
 @pytest.mark.skip
