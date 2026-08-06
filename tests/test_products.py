@@ -1,6 +1,5 @@
 import pytest
 
-@pytest.mark.skip
 def test_get_products_list(products_client):
     response = products_client.get_products_list()
     data = response.json()

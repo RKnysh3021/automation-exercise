@@ -1,3 +1,4 @@
+
 def test_search_product_found(products_client):
     response = products_client.post_search_product('top')
 
